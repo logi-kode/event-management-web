@@ -9,10 +9,10 @@ const app = express();
 const categoriesRouter = require('./app/api/v1/categories/router')
 const imageRouter = require('./app/api/v1/images/router')
 const talentsRouter = require('./app/api/v1/talents/router')
+const eventsRouter = require('./app/api/v1/events/router')
 
 //cms
 const v1 = '/api/v1/cms'
-
 
 //middlewares
 const notFoundMiddleware = require('./app/middlewares/not-found')
@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
 app.use(v1, categoriesRouter)
 app.use(v1, imageRouter)
 app.use(v1, talentsRouter)
+app.use(v1, eventsRouter)
 
 app.use(notFoundMiddleware)
 app.use(handleErrorMiddleware)
